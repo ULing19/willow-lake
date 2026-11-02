@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#eeeee4" />
+  <meta name="description" content="柳湾秘境：一个可以自由环绕探索的湖畔森林。" />
+  <title>WILLOW · 柳湾秘境</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='12' fill='%233e5144'/%3E%3Cpath d='M20 6 8 27h9v7h6v-7h9Z' fill='%23eff0e4'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div id="world" role="img" aria-label="可环绕探索的柳湾湖畔森林，包含小屋、湖心岛、旧屋、木舟、鹿群和飞鸟"></div>
+  <div class="atmosphere" aria-hidden="true"></div>
+  <header class="header">
+    <a class="brand" href="#" aria-label="WILLOW 回到世界概览">
+      <svg viewBox="0 0 38 42" fill="none" aria-hidden="true"><path d="m19 3-9 14h5L6 30h10v9h6v-9h10l-9-13h5L19 3Z" stroke="currentColor" stroke-width="1.4"/><path d="M19 13v21m-6-11 6 5 6-5" stroke="currentColor" stroke-width="1.3"/></svg>
+      <span>WILLOW<small>WANDER. BREATHE. BELONG.</small></span>
+    </a>
+    <nav aria-label="主导航"><button class="nav-link active" data-nav="overview">世界概览<span></span></button><button class="nav-link" data-nav="places">地点探索<span></span></button><button class="nav-link" data-nav="journal">野外手记<span></span></button></nav>
+    <div class="header-tools"><div class="weather"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg><span id="clock-label">06:42 AM</span><span class="weather-line"></span><span id="temp-label">12°</span></div><button id="sound-toggle" class="icon-button" aria-label="开启自然环境音" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m11 5-6 4H2v6h3l6 4V5Z"/><path class="sound-off" d="m16 9 6 6m0-6-6 6"/><path class="sound-on" d="M15 8c3 2 3 6 0 8m3-11c5 4 5 10 0 14"/></svg></button></div>
+  </header>
+
+  <main>
+    <section class="intro" aria-label="柳湾秘境介绍">
+      <div class="eyebrow"><span class="tiny-line"></span> LEAVE THE EVERYDAY BEHIND</div>
+      <h1>Into the<br>quiet <em>wild.</em></h1>
+      <div class="intro-subtitle">柳湾秘境 <span>／</span> WILLOW LAKE</div>
+      <p>沿着湖岸，走进森林。<br>在光影与雾气之间，找回片刻宁静。</p>
+      <div class="intro-actions"><button id="explore" class="primary-button">开始探索 <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></button><button id="tour" class="tour-button" aria-pressed="false"><span class="play-symbol">▷</span><span>漫游模式</span></button></div>
+      <div class="live-note"><span></span> 一个自由呼吸的小小世界</div>
+    </section>
+
+    <div id="hotspots" aria-label="场景探索点"></div>
+
+    <aside id="place-card" class="place-card" hidden>
+      <div class="place-topline"><span id="place-kicker">FIELD NOTE / 01</span><button class="close-button" id="close-place" aria-label="关闭地点详情">×</button></div>
+      <h2 id="place-title"></h2><p id="place-description"></p><div class="place-meta"><span id="place-tag"></span><span>慢一点，看看四周 ↗</span></div>
+    </aside>
+
+    <div class="side-tools" aria-label="场景工具">
+      <button id="light-toggle" class="icon-button" aria-label="切换至黄昏光照" title="切换光照"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v2m0 14v2M3 12h2m14 0h2M5.6 5.6 7 7m10 10 1.4 1.4M5.6 18.4 7 17M17 7l1.4-1.4"/><circle cx="12" cy="12" r="4"/></svg></button>
+      <span class="tool-divider"></span>
+      <button id="markers-toggle" class="icon-button selected" aria-label="隐藏地点标记" aria-pressed="true" title="地点标记"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z"/><circle cx="12" cy="10" r="2"/></svg></button>
+      <button id="fullscreen-toggle" class="icon-button" aria-label="进入全屏" title="全屏"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></svg></button>
+    </div>
+
+    <div class="compass" aria-hidden="true"><span>N</span><div id="compass-needle"><svg viewBox="0 0 50 50"><path d="m25 7 6 18-6 18-6-18Z" fill="none" stroke="currentColor"/><path d="m25 7 6 18H19Z" fill="currentColor"/></svg></div><i>E</i><i>W</i></div>
+
+    <div class="bottom-area">
+      <div class="world-caption"><span class="caption-top">A PLACE TO GET LOST</span><span class="caption-bottom">也许，漫无目的就是最好的目的。</span><div class="location-line"><svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M14 7c0 4-5 8-5 8S4 11 4 7a5 5 0 1 1 10 0Z"/><circle cx="9" cy="7" r="1.5"/></svg><span>北境森林 · 柳湾自然保护区</span></div></div>
+      <section class="destinations" aria-label="选择观景地点">
+        <div class="destinations-heading"><span>发现这里的故事</span><span id="place-count">01 <i>/ 05</i></span></div>
+        <div class="destination-list">
+          <button class="destination active" data-place="0" aria-label="世界全景" aria-pressed="true"><span class="thumb thumb-overview"><img id="thumb-0" alt="湖泊全景" /></span><span class="destination-info"><small>01 / OVERVIEW</small><b>世界全景</b></span></button>
+          <button class="destination" data-place="1" aria-label="湖畔小屋" aria-pressed="false"><span class="thumb thumb-cabin"><img id="thumb-1" alt="湖畔木屋" /></span><span class="destination-info"><small>02 / THE CABIN</small><b>湖畔小屋</b></span></button>
+          <button class="destination" data-place="2" aria-label="湖心小岛" aria-pressed="false"><span class="thumb thumb-island"><img id="thumb-2" alt="林木覆盖的湖心岛" /></span><span class="destination-info"><small>03 / THE ISLAND</small><b>湖心小岛</b></span></button>
+          <button class="destination" data-place="3" aria-label="林间旧屋" aria-pressed="false"><span class="thumb thumb-ruins"><img id="thumb-3" alt="森林中的旧屋" /></span><span class="destination-info"><small>04 / THE RUINS</small><b>林间旧屋</b></span></button>
+          <button class="destination" data-place="4" aria-label="森林小径" aria-pressed="false"><span class="thumb thumb-forest"><img id="thumb-4" alt="森林中的小径与鹿" /></span><span class="destination-info"><small>05 / THE TRAIL</small><b>森林小径</b></span></button>
+        </div>
+      </section>
+    </div>
+    <footer><span class="edition">AN INTERACTIVE ESCAPE <span>·</span> VOL. 001</span><span class="gesture-hint"><svg viewBox="0 0 16 20" fill="none" aria-hidden="true"><rect x="3" y="1" width="10" height="16" rx="5"/><path d="M8 4v4"/></svg>拖动旋转<span>·</span>滚轮缩放<span>·</span>右键平移</span><div class="zoom-controls"><button id="zoom-out" aria-label="缩小">−</button><span></span><button id="zoom-in" aria-label="放大">+</button><button id="reset-view" aria-label="重置视角" title="重置视角"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 10a8 8 0 1 1 1 7M4 4v6h6"/></svg></button></div></footer>
+  </main>
+
+  <dialog id="journal"><button class="close-button" id="close-journal" aria-label="关闭野外手记">×</button><div class="eyebrow">A FEW NOTES FROM THE WILD</div><h2>把时间，<br><em>留给自然。</em></h2><p class="journal-lead">这里没有必须抵达的终点。<br>只有一些值得停下来的瞬间。</p><div class="journal-notes"><article><span>01</span><div><h3>在晨雾散去之前</h3><p>木屋的烟囱升起细烟，码头边的旧木舟轻轻摇晃。听一会儿水声，再出发也不迟。</p></div></article><article><span>02</span><div><h3>森林会记得</h3><p>穿过湖岸小径，石墙上爬满青苔。那座没有了完整屋顶的旧房子，已经成为森林的一部分。</p></div></article><article><span>03</span><div><h3>做一个安静的访客</h3><p>鹿群在林缘驻足，野鸭掠过水面。拖动视角慢慢靠近，也可以开启漫游，让风替你选一个方向。</p></div></article></div><div class="journal-foot">WILLOW LAKE <span>一处想象中的自然秘境</span></div></dialog>
+
+  <div id="loading" role="status"><div class="loading-mark">W</div><span>正在走进森林</span><div class="loading-track"><i></i></div></div>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
